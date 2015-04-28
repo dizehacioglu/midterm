@@ -10,10 +10,13 @@ $(document).on('ready', function() {
 		this.downvotes = 0;
 		// this.category = category;
 		// this.picture = picture;
+
+		$('body').append(this.render());
 	};
 
 	Event.prototype.render = function(){
 		this.el = $('#event-tpl')
+		.clone()
 		.attr('id', null)
 		.addClass('event');
 
@@ -36,11 +39,16 @@ $(document).on('ready', function() {
 		this.interestedEvents = [];
 	};
 
+	$('.add-event-form').on('click', function(){
+		console.log("clicked on add event");
+	});
+
 	var e = new Event('Drake Concert', 'October 26th', 'Come listen to Champagne Papi cry about me', 'Pepsi Center');
-	$('body').append(e.render());
+
+	// $('body').append(e.render());
 
 	var e2 = new Event('Picnic', 'Right now', 'It\'s nice outside and I want to eat', 'Chataqua');
-	$('body').append(e2.render());
+	// $('body').append(e2.render());
 
 
 
