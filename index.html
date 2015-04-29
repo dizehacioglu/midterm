@@ -22,24 +22,28 @@
         <div class="modal-body">
           <form>
             <div class="form-group">
-              <label for="eventTitle">Title</label>
-              <input type="email" class="form-control" id="event-title-form" placeholder="Enter Title">
+              <label for="eventTitle">What?</label>
+              <input type="email" class="form-control" name="event-title" placeholder="Enter Title">
             </div>
             <div class="form-group">
-              <label for="eventDate">When is it?</label>
-              <input type="date" class="form-control" id="event-date-form" placeholder="Enter Date">
+              <label for="eventDate">When?</label>
+              <input type="date" class="form-control" name="event-date" placeholder="Enter Date">
             </div>
             <div class="form-group">
-              <label for="eventDescription">What is it?</label>
+              <label for="eventLocation">Where?</label>
+              <input type="text" class="form-control" name="event-location" placeholder="Enter Location">
+            </div>          
+            <div class="form-group">
+              <label for="eventDescription">Why?</label>
               <textarea class="form-control" rows="5" placeholder="Enter Description"></textarea>
             </div>
+            
 
 
-            <div class="form-group">
+           <!--  <div class="form-group">
               <label for="exampleInputFile">Picture (Optional)</label>
               <input type="file" id="exampleInputFile">
-   
-            </div>
+            </div> -->
           
           </form>
         </div>
@@ -47,18 +51,20 @@
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           <button type="button" class="btn btn-primary add-event-form" data-dismiss="modal">Add Event</button>
         </div>
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
+      </div>
+    </div>
+  </div>
 </div>
   
 
   <div id="templates">
-    <div id="event-tpl">
-      <h3 class="event-title">Title</h3>
-      <p class="event-date">Date</p>
-      <p class="event-location">Location</p>
-      <p class="event-description">Description</p>
+    <div id="event-library-tpl">
+      <div id="event-tpl">
+        <h3 class="event-title">Title</h3>
+        <p class="event-date">Date</p>
+        <p class="event-location">Location</p>
+        <p class="event-description">Description</p>
+      </div>
     </div>
   </div>
     
