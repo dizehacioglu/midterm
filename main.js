@@ -1,31 +1,42 @@
 $(document).on('ready', function() {
 
 	// Classes
-	var Event = function(title, date, description, location){ // Add category and picture
+	var Event = function(title, date, description, location, owner){ // Add category and picture
 		this.title = title;
 		this.date = date;
 		this.description = description;
 		this.location = location;
+		this.owner = owner;
 
 		this.downvotes = 0;
+		this.numofInterest = 0;
 		// this.category = category;
 		// this.picture = picture;
 	};
 
 	Event.prototype.render = function(){
 		
+		var interestBtn = $('<button></button>')
+						.text('I\'m interested!')
+						.addClass('btn interest');
+		var downvoteBtn = $('<button></button>')
+						.text('Downvote')
+						.addClass('btn downvote');
+
 		if(this.el === undefined){
 			this.el = $('#event-tpl')
 			.clone()
 			.attr('id', null)
-			.addClass('event');
+			.append(interestBtn, downvoteBtn);
 		}
 		
 		this.el.find('.event-title').text(this.title);
 		this.el.find('.event-date').text(this.date);
 		this.el.find('.event-description').text(this.description);
 		this.el.find('.event-location').text(this.location);
+		this.el.find('.event-owner').text(this.owner);
 
+		
 
 		return this.el;
 	};
@@ -58,6 +69,8 @@ $(document).on('ready', function() {
 				var newEvent = new Event(eventTitle, eventDate, eventDescription, eventLocation);
 				originalLibrary.addEvent(newEvent);
 			});
+
+		
 		}
 
 		var eventElements = this.events.map(function(e){
@@ -72,19 +85,25 @@ $(document).on('ready', function() {
 		console.log(this);
 	};
 
-	// var User = function(name, description){
-	// 	this.name = name;
-	// 	this.description = description;
-	// 	this.postedEvents = [];
-	// 	this.interestedEvents = [];
-	// };
+	var User = function(name, description, profilePic){
+		this.name = name;
+		this.description = description;
+		this.profilePic = profilePic;
+		this.postedEvents = [];
+		this.interestedEvents = [];
+	};
+
+	console.log($('.interest'));
 
 
 
+	$('.interest').on('click', function(){
+				console.log(this);
+	});
 
 
-
-
+	var dize = new User('Dize', 'Drake-loving girl living in a Drake-hating world', '');
+	
 
 
 
